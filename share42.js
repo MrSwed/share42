@@ -99,46 +99,57 @@
 			i = encodeURIComponent(i);
 			d = encodeURIComponent(d);
 			d = d.replace(/\'/g, '%27');
+			WC = 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, toolbar=0, status=0, ';
+			WCwh = ['width=550, height=440',
+			      'width=600, height=400',
+			      'width=710, height=660',
+			      'width=550, height=500',
+			      'width=600, height=300',
+			      'width=600, height=440',
+			      'width=450, height=440',
+			      'width=550, height=400',
+			      'width=650, height=400'
+			];
 			var vkImage = '';
 			if (i != 'null' && i != '')vkImage = '&image=' + i;
-			var s = ['"#" data-count="gplus" onclick="window.open(\'//plus.google.com/share?url=' + u + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Поделиться в Google+"', 
-				'"#" data-count="fb" onclick="window.open(\'//www.facebook.com/sharer/sharer.php?u=' + u + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Поделиться в Facebook"', 
-				'"#" data-count="vk" onclick="window.open(\'//vk.com/share.php?url=' + u + '&title=' + t + vkImage + '&description=' + d + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Поделиться В Контакте"', 
+			var s = ['"#" data-count="gplus" onclick="window.open(\'//plus.google.com/share?url=' + u + '\', \'_blank\', \''+WC+WCwh[0]+'\');return false" title="Поделиться в Google+"', 
+				'"#" data-count="fb" onclick="window.open(\'//www.facebook.com/sharer/sharer.php?u=' + u + '\', \'_blank\', \''+WC+WCwh[0]+'\');return false" title="Поделиться в Facebook"', 
+				'"#" data-count="vk" onclick="window.open(\'//vk.com/share.php?url=' + u + '&title=' + t + vkImage + '&description=' + d + '\', \'_blank\', \''+WC+WCwh[0]+'\');return false" title="Поделиться В Контакте"', 
 				'"//www.livejournal.com/update.bml?event=' + u + '&subject=' + t + '" title="Опубликовать в LiveJournal"', 
-				'"#" data-count="lnkd" onclick="window.open(\'//www.linkedin.com/shareArticle?mini=true&url=' + u + '&title=' + t + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=600, height=400, toolbar=0, status=0\');return false" title="Добавить в Linkedin"', 
-				'"#" data-count="mail" onclick="window.open(\'//connect.mail.ru/share?url=' + u + '&title=' + t + '&description=' + d + '&imageurl=' + i + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Поделиться в Моем Мире@Mail.Ru"', 
-				'"#" onclick="window.open(\'//www.blogger.com/blog_this.pyra?t&u=' + u + '&n=' + t + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Опубликовать в Blogger.com"', 
+				'"#" data-count="lnkd" onclick="window.open(\'//www.linkedin.com/shareArticle?mini=true&url=' + u + '&title=' + t + '\', \'_blank\', \''+WC+WCwh[1]+'\');return false" title="Добавить в Linkedin"', 
+				'"#" data-count="mail" onclick="window.open(\'//connect.mail.ru/share?url=' + u + '&title=' + t + '&description=' + d + '&imageurl=' + i + '\', \'_blank\', \''+WC+WCwh[0]+'\');return false" title="Поделиться в Моем Мире@Mail.Ru"', 
+				'"#" onclick="window.open(\'//www.blogger.com/blog_this.pyra?t&u=' + u + '&n=' + t + '\', \'_blank\', \''+WC+WCwh[0]+'\');return false" title="Опубликовать в Blogger.com"', 
 				'"//bobrdobr.ru/add.html?url=' + u + '&title=' + t + '&desc=' + d + '" title="Забобрить"', 
-				'"#" data-count="dlcs" onclick="window.open(\'//delicious.com/save?url=' + u + '&title=' + t + '&note=' + d + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=710, height=660, toolbar=0, status=0\');return false" title="Сохранить закладку в Delicious"', 
+				'"#" data-count="dlcs" onclick="window.open(\'//delicious.com/save?url=' + u + '&title=' + t + '&note=' + d + '\', \'_blank\', \''+WC+WCwh[2]+'\');return false" title="Сохранить закладку в Delicious"', 
 				'"//designbump.com/node/add/drigg/?url=' + u + '&title=' + t + '" title="Bump it!"', 
 				'"//www.designfloat.com/submit.php?url=' + u + '" title="Float it!"', 
 				'"//digg.com/submit?url=' + u + '" title="Добавить в Digg"', 
 				'"//www.evernote.com/clip.action?url=' + u + '&title=' + t + '" title="Добавить в Evernote"', 
 				'"//www.friendfeed.com/share?title=' + t + ' - ' + u + '" title="Добавить в FriendFeed"', 
-				'"#" onclick="window.open(\'//www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=' + u + '&title=' + t + '&annotation=' + d + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=500, toolbar=0, status=0\');return false" title="Сохранить закладку в Google"', 
+				'"#" onclick="window.open(\'//www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=' + u + '&title=' + t + '&annotation=' + d + '\', \'_blank\', \''+WC+WCwh[3]+'\');return false" title="Сохранить закладку в Google"', 
 				'"//identi.ca/notice/new?status_textarea=' + t + ' - ' + u + '" title="Добавить в Identi.ca"', 
 				'"//www.juick.com/post?body=' + t + ' - ' + u + '" title="Добавить в Juick"', 
 				'"//www.liveinternet.ru/journal_post.php?action=n_add&cnurl=' + u + '&cntitle=' + t + '" title="Опубликовать в LiveInternet"', 
 				'"//memori.ru/link/?sm=1&u_data[url]=' + u + '&u_data[name]=' + t + '" title="Сохранить закладку в Memori.ru"', 
 				'"//www.mister-wong.ru/index.php?action=addurl&bm_url=' + u + '&bm_description=' + t + '" title="Сохранить закладку в Мистер Вонг"', 
-				'"#" onclick="window.open(\'//chime.in/chimebutton/compose/?utm_source=bookmarklet&utm_medium=compose&utm_campaign=chime&chime[url]' + u + '=&chime[title]=' + t + '&chime[body]=' + d + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=600, height=440, toolbar=0, status=0\');return false" title="Добавить в Mixx"', 
+				'"#" onclick="window.open(\'//chime.in/chimebutton/compose/?utm_source=bookmarklet&utm_medium=compose&utm_campaign=chime&chime[url]' + u + '=&chime[title]=' + t + '&chime[body]=' + d + '\', \'_blank\', \''+WC+WCwh[5]+'\');return false" title="Добавить в Mixx"', 
 				'"//share.yandex.ru/go.xml?service=moikrug&url=' + u + '&title=' + t + '&description=' + d + '" title="Поделиться в Мой Круг"', 
 				'"//www.myspace.com/Modules/PostTo/Pages/?u=' + u + '&t=' + t + '&c=' + d + '" title="Добавить в MySpace"', 
 				'"//www.newsvine.com/_tools/seed&save?u=' + u + '&h=' + t + '" title="Добавить в Newsvine"', 
-				'"#" data-count="odkl" onclick="window.open(\'//ok.ru/dk?st.cmd=addShare&st._surl=' + u + '&title=' + t + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Добавить в Одноклассники"', 
+				'"#" data-count="odkl" onclick="window.open(\'//ok.ru/dk?st.cmd=addShare&st._surl=' + u + '&title=' + t + '\', \'_blank\', \''+WC+WCwh[0]+'\');return false" title="Добавить в Одноклассники"', 
 				'"//pikabu.ru/add_story.php?story_url=' + u + '" title="Добавить в Pikabu"', 
-				'"#" data-count="pin" onclick="window.open(\'//pinterest.com/pin/create/button/?url=' + u + '&media=' + i + '&description=' + t + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=600, height=300, toolbar=0, status=0\');return false" title="Добавить в Pinterest"', 
+				'"#" data-count="pin" onclick="window.open(\'//pinterest.com/pin/create/button/?url=' + u + '&media=' + i + '&description=' + t + '\', \'_blank\', \''+WC+WCwh[4]+'\');return false" title="Добавить в Pinterest"', 
 				'"//postila.ru/publish/?url=' + u + '&agregator=share42" title="Добавить в Постилу"', 
 				'"//reddit.com/submit?url=' + u + '&title=' + t + '" title="Добавить в Reddit"', 
 				'"//rutwit.ru/tools/widgets/share/popup?url=' + u + '&title=' + t + '" title="Добавить в РуТвит"', 
 				'"//www.stumbleupon.com/submit?url=' + u + '&title=' + t + '" title="Добавить в StumbleUpon"', 
-				'"#" onclick="window.open(\'//surfingbird.ru/share?url=' + u + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Добавить в Surfingbird"', 
+				'"#" onclick="window.open(\'//surfingbird.ru/share?url=' + u + '\', \'_blank\', \''+WC+WCwh[0]+'\');return false" title="Добавить в Surfingbird"', 
 				'"//technorati.com/faves?add=' + u + '&title=' + t + '" title="Добавить в Technorati"', 
-				'"#" onclick="window.open(\'//www.tumblr.com/share?v=3&u=' + u + '&t=' + t + '&s=' + d + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=450, height=440, toolbar=0, status=0\');return false" title="Добавить в Tumblr"', 
-				'"#" data-count="twi" onclick="window.open(\'//twitter.com/intent/tweet?text=' + t + '&url=' + u + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Добавить в Twitter"', 
-				'"#" onclick="window.open(\'//webdiscover.ru/share.php?url=' + u + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Опубликовать на WebDiscover.ru"', 
-				'"#" onclick="window.open(\'//bookmarks.yahoo.com/toolbar/savebm?u=' + u + '&t=' + t + '&d=' + d + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=400, toolbar=0, status=0\');return false" title="Добавить в Yahoo! Закладки"', 
-				'"#" onclick="window.open(\'//yosmi.ru/index.php?do=share&url=' + u + '\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=650, height=400, toolbar=0, status=0\');return false" title="Добавить в ёСМИ"', 
+				'"#" onclick="window.open(\'//www.tumblr.com/share?v=3&u=' + u + '&t=' + t + '&s=' + d + '\', \'_blank\', \''+WC+WCwh[6]+'\');return false" title="Добавить в Tumblr"', 
+				'"#" data-count="twi" onclick="window.open(\'//twitter.com/intent/tweet?text=' + t + '&url=' + u + '\', \'_blank\', \''+WC+WCwh[0]+'\');return false" title="Добавить в Twitter"', 
+				'"#" onclick="window.open(\'//webdiscover.ru/share.php?url=' + u + '\', \'_blank\', \''+WC+WCwh[0]+'\');return false" title="Опубликовать на WebDiscover.ru"', 
+				'"#" onclick="window.open(\'//bookmarks.yahoo.com/toolbar/savebm?u=' + u + '&t=' + t + '&d=' + d + '\', \'_blank\', \''+WC+WCwh[7]+'\');return false" title="Добавить в Yahoo! Закладки"', 
+				'"#" onclick="window.open(\'//yosmi.ru/index.php?do=share&url=' + u + '\', \'_blank\', \''+WC+WCwh[8]+'\');return false" title="Добавить в ёСМИ"', 
 				'"#" onclick="return up()" title="Наверх"', 
 				'"" onclick="return fav(this);" title="Сохранить в избранное браузера"', 
 				'"#" onclick="print();return false" title="Распечатать"'];
@@ -169,8 +180,9 @@ function fav(a){
 		}
 	}
 	return false;
-};function up(){
+}
+function up(){
 	var j = jQuery.noConflict();
 	j('body,html').animate({scrollTop: 0}, 500);
 	return false;
-};
+}
