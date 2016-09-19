@@ -153,12 +153,11 @@
 				'"#" onclick="return up()" title="Наверх"', 
 				'"" onclick="return fav(this);" title="Сохранить в избранное браузера"', 
 				'"#" onclick="print();return false" title="Распечатать"'];
-			var l = '';
-			for (j = 0; j < s.length; j++)l += '<span class="share42-item"><a rel="nofollow" style="background-position:-' + 24 * j + 'px 0" href=' + s[j] + ' target="_blank"></a></span>';
-			el.html( 
+			el.html(
 				'<style>.share42-item{display:inline-block;margin:0 6px 6px 0;height:24px;} .share42-item a{display:inline-block;width:24px;height:24px;margin:0;padding:0;outline:none;background:url(' + f + fn + ') no-repeat -10000px -10000px} .share42-counter{display:inline-block;vertical-align:top;margin-left:9px;position:relative;background:#FFF;color:#666;} .share42-counter:before{content:"";position:absolute;top:0;left:-8px;width:8px;height:100%;} .share42-counter{height:24px;padding:0 7px 0 3px;font:12px/25px Arial,sans-serif;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAYCAYAAAAMAljuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIxJREFUeNrs2rENgCAQQNHDyBBWDMFULmFjnMGlYAgKoy01BR5xB6H4P7mE+l7JmRBCFerdrXN673dTNfbRt1KKpJQk57xNrKN/1lpxzrXnCshAKNoCyGABAggBAggBAggBAggBAggBQoAAQoAAQoAAQr/U/tW1B5BBMNqRg3bOMUY20r9LvjOg4xVgABtzIxFP3JZkAAAAAElFTkSuQmCC) 100% 0;} .share42-counter:before{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAYCAYAAADH2bwQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJlJREFUeNrEks0NwyAMhU0kdmi4MARTZYh0jS4FE3DiAjvA4dVUjZQ/p+qlfZKFrPcJPYMVANorhDDzMXGN1IF1ee/nGCNqrega6KjJWkta61dzBoyLKQEb/Rrg+WGM2RKr+ZFzxl6XJj6Z0kseQiq+gUop8hScXIQG5xx1U4ROvvv7kH8ASmvtEniklGiBlLD29/fa354CDAC6sL9OAqehCgAAAABJRU5ErkJggg==);}</style>' +
-				'<span id="share42">' + l + '</span>'
+				'<span id="share42"></span>'
 			);
+			for (j = 0; j < s.length; j++) $("> span",el).append('<span class="share42-item"><a rel="nofollow" style="background-position:-' + 24 * j + 'px 0" href=' + s[j] + ' target="_blank"></a></span>');
 		})
 	})
 })(jQuery);
