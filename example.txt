@@ -1,0 +1,3 @@
+
+<div class="share42init"></div>
+<script type="text/javascript" src="/assets/js/share/share42.js"></script>
