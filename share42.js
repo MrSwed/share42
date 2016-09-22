@@ -18,7 +18,7 @@
 			function fb_count(url){
 				var shares;
 				$.getJSON('//graph.facebook.com/?fields=share&id=' + url, function(data){
-					shares = data.share.share_count || 0;
+					shares = (data.share?data.share.share_count:0) || 0;
 					if (shares > 0 || z == 1)el.find('a[data-count="fb"]').after('<span class="share42-counter">' + shares + '</span>')
 				})
 			}
